@@ -1,6 +1,9 @@
 #!/bin/bash
 #
 
+# run start!
+# curl -sSL https://raw.githubusercontent.com/gynmi/coding/master/server_init.sh | sh
+
 # 系统初始化配置
 update_dep()
 {
@@ -50,7 +53,8 @@ setup_zsh()
     sed -i '/plugins=(.*)/s/)/ autojump&/' ~/.zshrc
     sed -i '/plugins=(.*)/s/)/ zsh-autosuggestions&/' ~/.zshrc
 
-    wget -P ~ https://github.com/gynmi/coding/blob/master/zeta.zsh-theme
+    wget -P ~ https://raw.githubusercontent.com/gynmi/coding/master/zeta.zsh-theme
+
     mv ~/zeta.zsh-theme ~/.oh-my-zsh/themes/
 
     sed -i 's/robbyrussell/zeta/g' ~/.zshrc
@@ -108,7 +112,7 @@ install_docker()
 
 start_docker_container()
 {
-    wget -P ~/etc https://github.com/gynmi/coding/blob/master/mysql.cnf
+    wget -P ~/etc https://raw.githubusercontent.com/gynmi/coding/master/mysql.cnf
 
     # 启动mysql
     docker run --name mysql \
@@ -124,14 +128,14 @@ start_docker_container()
     docker run --name mongo \
                -d mongo
 
-    docker exec -it mongo mongo admin
-    use admin;
-    db.createUser({ user: "$USER",pwd: "qwer1234",roles: [{ role: "root", db: "admin" }]});
+    # docker exec -it mongo mongo admin
+    # use admin;
+    # db.createUser({ user: "$USER",pwd: "qwer1234",roles: [{ role: "root", db: "admin" }]});
 
-    db.auth("$USER", "qwer1234");
+    # db.auth("$USER", "qwer1234");
 
-    use Shadowsocks-Manager;
-    db.createUser({ user: "vpn", pwd: "qwer1234",roles: [{ role: "readWrite", db: "Shadowsocks-Manager"}]});
+    # use Shadowsocks-Manager;
+    # db.createUser({ user: "vpn", pwd: "qwer1234",roles: [{ role: "readWrite", db: "Shadowsocks-Manager"}]});
 
 
     # 启动redis
@@ -196,19 +200,19 @@ install_ss()
 }
 
 
-echo -e "\033[----------------------------------\033[0m"
-echo -e "\033[Please enter your choise:\033[0m"
-echo -e "\033[(0) update_dep\033[0m"
-echo -e "\033[(1) setup_zsh\033[0m"
-echo -e "\033[(2) setup_swap\033[0m"
-echo -e "\033[(3) install_nvm\033[0m"
-echo -e "\033[(4) install_docker\033[0m"
-echo -e "\033[(5) start_docker_container\033[0m"
-echo -e "\033[(6) install_nginx\033[0m"
-echo -e "\033[(7) install_ss\033[0m"
-echo -e "\033[(8) install_all\033[0m"
-echo -e "\033[(9) Exit Menu\033[0m"
-echo -e "\033[----------------------------------\033[0m"
+echo "\033[33m----------------------------------\033[0m"
+echo "\033[32mPlease enter your choise:\033[0m"
+echo "\033[36m(0)\033[0m \033[34mupdate_dep\033[0m"
+echo "\033[36m(1)\033[0m \033[34msetup_zsh\033[0m"
+echo "\033[36m(2)\033[0m \033[34msetup_swap\033[0m"
+echo "\033[36m(3)\033[0m \033[34minstall_nvm\033[0m"
+echo "\033[36m(4)\033[0m \033[34minstall_docker\033[0m"
+echo "\033[36m(5)\033[0m \033[34mstart_docker_container\033[0m"
+echo "\033[36m(6)\033[0m \033[34minstall_nginx\033[0m"
+echo "\033[36m(7)\033[0m \033[34minstall_ss\033[0m"
+echo "\033[36m(8)\033[0m \033[34minstall_all\033[0m"
+echo "\033[36m(9)\033[0m \033[34mExit Menu\033[0m"
+echo "\033[33m----------------------------------\033[0m"
 read input
 
 case $input in

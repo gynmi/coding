@@ -250,11 +250,11 @@ esac
 
 
 
-update_dep
-setup_zsh
-setup_swap
-install_nvm
-install_docker
+# update_dep
+# setup_zsh
+# setup_swap
+# install_nvm
+# install_docker
 # start_docker_container
 # install_nginx
 # install_ss

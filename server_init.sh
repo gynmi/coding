@@ -126,15 +126,19 @@ start_docker_container()
 
     # 启动mongodb
     docker run --name mongo \
-               -d mongo
+               -p 127.0.0.1:27017:27017 \
+               -v /data/mongo:/data/db \
+               -d mongo \
+               --auth
+
+    # db.system.users.find();
+    # db.system.users.remove({user:"$USER"});
+    # db.auth('vpn', 'qwer1234');
 
     # docker exec -it mongo mongo admin
-    # use admin;
-    # db.createUser({ user: "$USER",pwd: "qwer1234",roles: [{ role: "root", db: "admin" }]});
+    # db.createUser({ user: "gynmi",pwd: "qwer1234",roles: [{ role: "root", db: "admin" }]});
 
-    # db.auth("$USER", "qwer1234");
-
-    # use Shadowsocks-Manager;
+    # docker exec -it mongo mongo Shadowsocks-Manager
     # db.createUser({ user: "vpn", pwd: "qwer1234",roles: [{ role: "readWrite", db: "Shadowsocks-Manager"}]});
 
 
@@ -215,44 +219,61 @@ echo "\033[36m(9)\033[0m \033[34mExit Menu\033[0m"
 echo "\033[33m----------------------------------\033[0m"
 read input
 
-case $input in
-    0)
-    echo update_dep
-    update_dep;;
-    1)
-    echo setup_zsh
-    setup_zsh;;
-    2)
-    echo setup_swap
-    setup_swap;;
-    3)
-    echo install_nvm
-    install_nvm;;
-    4)
-    echo install_docker
-    install_docker;;
-    5)
-    echo start_docker_container
-    start_docker_container;;
-    6)
-    echo install_nginx
-    install_nginx;;
-    7)
-    echo install_ss
-    install_ss;;
-    8)
-    echo install_all
-    update_dep
-    setup_zsh
-    setup_swap
-    install_nvm
-    install_docker
-    start_docker_container;;
-    9)
-    exit;;
-esac
+menu()
+{
+    case $input in
+        0)
+        echo "prepare update_dep..."
+        update_dep
+        echo "update_dep success!"
+        menu;;
+        1)
+        # TODO 检测是否安装过
+        echo "prepare setup_zsh..."
+        setup_zsh
+        echo "setup_zsh success!"
+        menu;;
+        2)
+        # TODO 检测是否安装过
+        echo "prepare setup_swap..."
+        setup_swap
+        echo "setup_swap success!"
+        menu;;
+        3)
+        # TODO 检测是否安装过
+        echo "prepare install_nvm..."
+        install_nvm
+        echo "install_nvm success!"
+        menu;;
+        4)
+        # TODO 检测是否安装过
+        echo "prepare install_docker..."
+        install_docker
+        echo "install_docker success!"
+        install_docker;;
+        5)
+        echo start_docker_container
+        start_docker_container;;
+        6)
+        echo install_nginx
+        install_nginx;;
+        7)
+        echo install_ss
+        install_ss;;
+        8)
+        echo install_all
+        update_dep
+        setup_zsh
+        setup_swap
+        install_nvm
+        install_docker
+        start_docker_container;;
+        9)
+        exit;;
+    esac
+}
 
-
+menu
 
 # update_dep
 # setup_zsh

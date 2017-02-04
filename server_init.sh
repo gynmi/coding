@@ -217,7 +217,7 @@ echo "\033[36m(7)\033[0m \033[34minstall_ss\033[0m"
 echo "\033[36m(8)\033[0m \033[34minstall_all\033[0m"
 echo "\033[36m(9)\033[0m \033[34mExit Menu\033[0m"
 echo "\033[33m----------------------------------\033[0m"
-read input
+read input < /dev/tty
 
 menu()
 {

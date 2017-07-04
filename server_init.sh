@@ -99,15 +99,13 @@ install_docker()
 
     sudo usermod -aG docker $USER
     #password
+    
+    sudo gpasswd -a ${USER} docker
 
     sudo service docker start
     #password
-
-    # latest
-    docker pull mysql
-    docker pull mongo
-    docker pull redis
-    docker pull rabbitmq
+    
+    newgrp - docker
 }
 
 start_docker_container()

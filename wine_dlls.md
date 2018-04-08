@@ -1,3 +1,5 @@
+# ubuntu通过wine安装Tim
+
 winetricks -V
 20180217
 

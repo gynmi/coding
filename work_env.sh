@@ -24,5 +24,5 @@ curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" |
 ./my/conf.d:/etc/mysql/conf.d
 
 #### redis
-
+./my/conf/redis.conf:/usr/local/etc/redis/redis.conf
 

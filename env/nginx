@@ -1,5 +1,6 @@
 #! /bin/sh
 ### BEGIN INIT INFO
+# Nginx service命令
 # Provides:          nginx
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog

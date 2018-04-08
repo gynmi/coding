@@ -15,15 +15,20 @@ curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" |
     sed -e "s/^/${Repo}/"
 
 ### docker volumes
-#### nginx
+#### nginx:1.13.11-alpine
 ./my/nginx.conf:/etc/nginx/nginx.conf:ro
 ./my/mysite.conf:/etc/nginx/conf.d/mysite.conf
 
-#### mysql
+#### mysql:5.7.21
 ./my/my.cnf:/etc/mysql/my.cnf
 ./my/conf.d:/etc/mysql/conf.d
 ./my/mysql/datadir:/var/lib/mysql
 
-#### redis
+#### redis:4.0.9-alpine
 ./my/conf/redis.conf:/usr/local/etc/redis/redis.conf
 ./my/redis/datadir:/data
+
+#### rabbitmq:3.7.4-management-alpine
+
+
+

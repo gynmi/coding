@@ -13,3 +13,8 @@ curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" |
     grep '"name":' | \
     awk -F\" '{print $4;}' | \
     sed -e "s/^/${Repo}/"
+
+### docker volumes
+#### nginx
+./nginx.conf:/etc/nginx/nginx.conf:ro
+./mysite.conf:/etc/nginx/conf.d/mysite.conf

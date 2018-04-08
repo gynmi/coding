@@ -29,6 +29,8 @@ curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" |
 ./my/redis/datadir:/data
 
 #### rabbitmq:3.7.4-management-alpine
+./my/conf/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
+./my/rabbitmq/datadir:/var/lib/rabbitmq
 
 
 

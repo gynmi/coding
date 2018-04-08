@@ -18,3 +18,9 @@ curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" |
 #### nginx
 ./nginx.conf:/etc/nginx/nginx.conf:ro
 ./mysite.conf:/etc/nginx/conf.d/mysite.conf
+
+#### mysql
+
+#### redis
+
+

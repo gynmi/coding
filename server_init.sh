@@ -7,15 +7,7 @@
 # 系统初始化配置
 update_dep()
 {
-    sudo apt-get update
-    sudo apt-get upgrade
-
-    sudo apt-get install g++ gcc make cmake
-    # Do you want to continue? [Y/n]
-
-    mkdir ~/box
-    mkdir ~/project
-    mkdir ~/etc
+    echo "installing update_dep!"
 }
 
 # 安装zsh, oh-my-zsh, autojump, autosuggestions(命令历史)

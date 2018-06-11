@@ -261,6 +261,7 @@ menu()
         9)
         exit;;
     esac
+    input=-1
 }
 
 menu

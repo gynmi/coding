@@ -207,15 +207,17 @@ echo "\033[36m(7)\033[0m \033[34minstall_ss\033[0m"
 echo "\033[36m(8)\033[0m \033[34minstall_all\033[0m"
 echo "\033[36m(9)\033[0m \033[34mExit Menu\033[0m"
 echo "\033[33m----------------------------------\033[0m"
-read input < /dev/tty
 
 menu()
 {
+    read input < /dev/tty
+    
     case $input in
         0)
         echo "prepare update_dep..."
         update_dep
         echo "update_dep success!"
+        menu
         ;;
         1)
         # TODO 检测是否安装过

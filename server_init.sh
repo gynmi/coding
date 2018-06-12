@@ -217,7 +217,6 @@ menu()
         echo "prepare update_dep..."
         update_dep
         echo "update_dep success!"
-        menu
         ;;
         1)
         # TODO 检测是否安装过
@@ -263,7 +262,8 @@ menu()
         9)
         exit;;
     esac
-    input=-1
+    echo "继续操作? 请输入操作编号."
+    menu
 }
 
 menu

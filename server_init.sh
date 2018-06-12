@@ -216,7 +216,7 @@ menu()
         echo "prepare update_dep..."
         update_dep
         echo "update_dep success!"
-        menu;;
+        ;;
         1)
         # TODO 检测是否安装过
         echo "prepare setup_zsh..."

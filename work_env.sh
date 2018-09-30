@@ -7,6 +7,9 @@
 #    docker run --rm uzyexe/nmap [Scan Type(s)] [Options] {target specification}
 #    docker run --rm uzyexe/nmap -p 80 example.com
 
+# access-token    828dca28f063f4dfc9c9f156c6b373bbb32e9fd8
+# gid             56588e9d9a269368d855563d2a55b890
+
 # 查看指定镜像的版本
 curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" | \
     sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \

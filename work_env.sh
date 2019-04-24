@@ -35,5 +35,37 @@ curl -s -S "https://registry.hub.docker.com/v2/repositories/uzyexe/nmap/tags/" |
 ./my/conf/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
 ./my/rabbitmq/datadir:/var/lib/rabbitmq
 
-
-
+# vscode 远程调试node (docker也可)
+node_modules/.bin/babel-node app.js  --presets es2017,stage-3 --inspect=0.0.0.0:5858
+{
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "docker-web-api",
+      "port": 5858,
+      "address": "192.168.14.159",
+      "localRoot": "${workspaceFolder}/",
+      "remoteRoot": "/home/node/app/web_api/",
+      "restart": true,
+      // "sourceMaps": false,
+      // "processId": "${command:PickProcess}",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "web-api",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
+      "program": "${workspaceFolder}/app.js",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "envFile": "${workspaceFolder}/.vscode/.env",
+      "autoAttachChildProcesses": true
+    }
+  ]
+}
